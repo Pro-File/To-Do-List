@@ -34,7 +34,7 @@ html{
 }
 
 .content{
-    background: rgba(255, 255, 255, 0.39);
+    background: transparent;
     box-shadow: 12px 0px 30px 8px rgba(128, 128, 128, 0.801);
     display: grid;
     grid-template-columns: 100fr;
