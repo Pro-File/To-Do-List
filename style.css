@@ -1,0 +1,633 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+html{
+    font-size: 62.5%;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+:root{
+    --heading-font:'Yeon Sung', cursive;
+    --btn-font: 'Comic Neue', cursive;
+    --regular: 400;
+    --semi-bold: 600;
+    --bold: 700;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background:#55E6C1;
+    display: grid;
+    grid-template-columns: 10vw 80vw 10vw;
+    grid-template-rows: 10vh 80vh 10vh;
+    grid-template-areas: ". header ."
+                         ". content ."
+                         ". footer .";
+}
+.header{
+    /* background: darkorange; */
+}
+
+.content{
+    background: rgba(255, 255, 255, 0.39);
+    box-shadow: 12px 0px 30px 8px rgba(128, 128, 128, 0.801);
+    display: grid;
+    grid-template-columns: 100fr;
+    grid-template-rows: 20fr 15fr 55fr 10fr;
+    grid-template-areas: "title"
+                         "time"
+                         "list"
+                         "userInput";
+}
+.title{
+    /* background: yellow; */
+}
+.title>h1{
+    font-family: var(--heading-font);
+    font-size: 6rem;
+    letter-spacing: 0.5rem;
+}
+.time{
+    /* background: lightseagreen; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "D&T reset";
+}
+.date{
+    /* background: yellowgreen; */
+}
+#timeHeading{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 3.5rem;
+    font-family: var(--btn-font);
+    margin-left: 5rem;
+    /* background: lawngreen; */
+}
+
+
+.resetBtn{
+    /* background: yellow; */
+}
+form{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /* background: lawngreen; */
+}
+.resetBtn>form>input{
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 20px;
+    border: none;
+}
+form>button{
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.ListArea{
+    width:100%;
+    height: 100%;
+    background-color: #FFF;
+    overflow: auto;
+}
+
+.ListArea ul{
+    padding:0;
+    margin:0;
+}
+.item{
+    animation: slide-up 0.5s ease;
+}
+@keyframes slide-up{
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.item{
+    width: 100%;
+    min-height: 4.6rem;
+    position: relative;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.301);
+    list-style: none;
+    background-color: #ffff;
+    padding: 0;
+    margin: 0;
+}
+.item i.co{
+    float: right;
+    font-size: 25px;
+    padding-left:5px;
+    position: relative;
+    top:10px;
+    right: 80px;
+}
+.item i.de{
+    position: absolute;
+    font-size: 25px;
+    right: 30px;
+    top:10px;
+}
+.item i.co:hover{
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+    animation: animate 500ms ease;
+}
+
+.item i.de:hover{
+    color:red;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+    animation: animate 500ms ease;
+}
+
+.fa-check-circle{
+    color:#6eb200;
+}
+
+
+@keyframes animate {
+    0%   {transform: scale(1);}
+
+    100% {transform: scale(1.2);}
+}
+.item p.text{
+    position: absolute;
+    padding:0;
+    margin:0;
+    font-size: 2.5rem;
+    font-family: var(--btn-font);
+    left:50px;
+    top:10px;
+    animation: slide-down 0.5s ease;
+}
+@keyframes slide-down{
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.lineThrough{
+    text-decoration: line-through;
+    color : #ccc;
+}
+
+.user_Access{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    border-top: 3px solid rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.userInput{
+    position: relative;
+    width: 100%;
+    height:100%;
+    padding-bottom: 0.3rem;
+}
+.userInput i{
+    position: absolute;
+    font-size: 40px;
+    color: #55E6C1;
+    top: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+}
+
+.userInput>input{
+    position: relative;
+    left: 6rem;
+    top: 1rem;
+    height: 4rem;
+    width: 30rem;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    padding-left: 1rem;
+    color:black;
+    font-family: var(--btn-font);
+}
+.buttonArea{
+    width: 100%;
+    height: 100%;
+    margin-right: 2rem;
+}
+.buttonArea>button{
+    padding: 0.7rem;
+    margin: 1rem;
+    font-family: var(--btn-font);
+    font-weight: var(--semi-bold);
+    box-shadow: 0px 0px 3px 1px rgb(71, 71, 71);
+    letter-spacing: 2px;
+}
+
+.footer{
+    /* background: darkgreen; */
+}
+.footer>form>input{
+    padding: 0.7rem;
+    margin: 1rem;
+    font-family: var(--btn-font);
+    font-weight: var(--semi-bold);
+    box-shadow: 0px 0px 3px 1px rgb(71, 71, 71);
+    letter-spacing: 2px;
+}
+
+/* responsiveness */
+@media only screen and (max-width: 1250px){
+    .title>h1{
+        font-size: 5rem;
+        letter-spacing: 0.4rem;
+    }
+    #timeHeading{
+        font-size: 3rem;
+        margin-left: 5rem;
+    }
+    .resetBtn>form>input{
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 15px;
+    }
+    .resetBtn>form>button{
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 15px;
+    }
+
+    .item i.co{
+        font-size: 20px;
+        padding-left:5px;
+        position: relative;
+        top:10px;
+        right: 80px;
+    }
+    .item i.de{
+        position: absolute;
+        font-size: 20px;
+        right: 30px;
+        top:10px;
+    }
+    .item p.text{
+        position: absolute;
+        font-size: 2.2rem;
+        left:50px;
+        top:10px;
+    }
+    .userInput i{
+        position: absolute;
+        font-size: 30px;
+        top: 1.5rem;
+        left: 1rem;
+        bottom: 1rem;
+    }
+    
+    .userInput>input{
+        position: relative;
+        left: 5rem;
+        top: 1rem;
+        height: 4rem;
+        width: 25rem;
+        font-size: 18px;
+        padding-left: 1rem;
+    }
+    .buttonArea>button{
+        padding: 0.7rem;
+        margin: 1rem;
+        box-shadow: 0px 0px 3px 1px rgb(71, 71, 71);
+        letter-spacing: 2px;
+        font-size: 1.1rem;
+    }
+}
+@media only screen and (max-width: 1150px){
+    .title>h1{
+        font-size: 4rem;
+        letter-spacing: 0.4rem;
+    }
+    #timeHeading{
+        font-size: 2.5rem;
+        margin-left: 5rem;
+    }
+
+    .item i.co{
+        font-size: 18px;
+        padding-left:5px;
+        position: relative;
+        top:10px;
+        right: 80px;
+    }
+    .item i.de{
+        position: absolute;
+        font-size: 18px;
+        right: 30px;
+        top:10px;
+    }
+    .item p.text{
+        position: absolute;
+        font-size: 2rem;
+        left:50px;
+        top:10px;
+    }
+    .userInput i{
+        position: absolute;
+        font-size: 25px;
+        top: 1.8rem;
+        left: 1rem;
+        bottom: 1rem;
+    }
+    
+    .userInput>input{
+        position: relative;
+        left: 4.5rem;
+        top: 1rem;
+        height: 4rem;
+        width: 25rem;
+        font-size: 18px;
+        padding-left: 1rem;
+    }
+
+}
+@media only screen and (max-width: 960px){
+    .container{
+        display: grid;
+        grid-template-columns: 5vw 90vw 5vw;
+        grid-template-rows: 10vh 80vh 10vh;
+        grid-template-areas: ". header ."
+                             ". content ."
+                             ". footer .";
+    }
+}
+@media only screen and (max-width: 860px){
+    html{
+        font-size: 55%;
+    }
+    .resetBtn>form>input{
+        width: 140px;
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 15px;
+    }
+    .resetBtn>form>button{
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 15px;
+    }
+    .item i.co{
+        font-size: 17px;
+    }
+    .item i.de{
+        font-size: 17px;
+    }
+    .item p.text{
+        font-size: 2rem;
+    }
+    .userInput i{
+        position: absolute;
+        font-size: 25px;
+        top: 1rem;
+        left: 1rem;
+        bottom: 1rem;
+    }
+    
+    .userInput>input{
+        position: relative;
+        left: 4rem;
+        top: 1rem;
+        height: 3rem;
+        width: 25rem;
+        font-size: 18px;
+        padding-left: 1rem;
+    }
+    .buttonArea>button{
+        padding: 0.7rem;
+        margin: 1rem;
+        box-shadow: 0px 0px 3px 1px rgb(71, 71, 71);
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+    }
+}
+@media only screen and (max-width: 720px){
+    .title>h1{
+        font-size: 4rem;
+        letter-spacing: 0.1rem;
+    }
+    #timeHeading{
+        font-size: 2rem;
+        margin-left: 5rem;
+    }
+    .resetBtn>form>input{
+        width: 120px;
+        padding: 5px;
+    }
+    .resetBtn>form>button{
+        padding: 5px 10px;
+    }
+    .item i.co{
+        float: right;
+        font-size: 15px;
+        padding-left: 5px;
+        position: relative;
+        top:10px;
+        right: 80px;
+    }
+    .item i.de{
+        position: absolute;
+        font-size: 15px;
+        right: 30px;
+        top:10px;
+    }
+}
+@media only screen and (max-width: 650px){
+    .title>h1{
+        font-size: 3rem;
+        letter-spacing: 0.1rem;
+    }
+    #timeHeading{
+        font-size: 1.8rem;
+        margin-left: 3rem;
+    }
+    .item p.text{
+        position: absolute;
+        font-size: 2rem;
+        left:30px;
+        top:10px;
+    }
+    .userInput i{
+        position: absolute;
+        font-size: 25px;
+        top: 1rem;
+        left: 1rem;
+        bottom: 1rem;
+    }
+    
+    .userInput>input{
+        position: relative;
+        left: 4rem;
+        top: 0.5rem;
+        height: 4rem;
+        width: 20rem;
+        font-size: 15px;
+        padding-left: 1rem;
+    }
+    .buttonArea>button{
+        padding: 0.7rem;
+        margin: 0.7rem;
+        box-shadow: 0px 0px 3px 1px rgb(71, 71, 71);
+        letter-spacing: 0px;
+        font-size: 1.1rem;
+    }
+}
+@media only screen and (max-width: 500px){
+    .content{
+        display: grid;
+        grid-template-rows: 10fr 15fr 65fr 10fr;
+    }
+    .title>h1{
+        position: relative;
+        top: 10%;
+        font-size: 3rem;
+        letter-spacing: 0.2rem;
+    }
+    #timeHeading{
+        position: relative;
+        top: 5%;
+        font-size: 1.7rem;
+        margin-left: 2rem;
+    }
+    .resetBtn>form>input{
+        width: 80px;
+        padding: 3px;
+    }
+    .resetBtn>form>button{
+        padding: 3px 10px;
+    }
+    .item{
+        min-height: 5rem;
+    }
+    .item p.text{
+        position: absolute;
+        font-size: 2rem;
+        left: 20px;
+        top:10px;
+    }
+    .userInput i{
+        position: absolute;
+        font-size: 25px;
+        left: 0.5rem;
+        bottom: 1rem;
+    }
+    
+    .userInput>input{
+        position: relative;
+        left: 4rem;
+        top: 1rem;
+        height: 3rem;
+        width: 15rem;
+        font-size: 15px;
+        padding-left: 1rem;
+    }
+    .buttonArea{
+        height: 70%;
+    }
+    .buttonArea>button{
+        padding: 0.5rem;
+        margin: 0.5rem;
+        margin-bottom: 0rem;
+        margin-top: 0rem;
+        font-size: 1.1rem;
+    }
+}
+@media only screen and (max-width: 370px){
+    .content{
+        background: rgba(255, 255, 255, 0.39);
+        box-shadow: 5px 0px 3px 2px rgba(128, 128, 128, 0.698);
+  
+    }
+    .title>h1{
+        position: relative;
+        top: 10%;
+        font-size: 2.8rem;
+        letter-spacing: 0.2rem;
+    }
+    #timeHeading{
+        font-size: 1.4rem;
+        margin-left: 2rem;
+    }
+    .resetBtn>form>input{
+        width: 60px;
+        font-size: 10px;
+    }
+    .resetBtn>form>button{
+        font-size: 10px;
+    }
+    .item i.co{
+        font-size: 15px;
+        padding-left:3px;
+        position: relative;
+        top:10px;
+        right: 50px;
+    }
+    .item i.de{
+        position: absolute;
+        font-size: 15px;
+        right: 20px;
+        top:10px;
+    }
+    .item p.text{
+        position: absolute;
+        font-size: 1.8rem;
+        left:20px;
+    }
+    .userInput i{
+        position: absolute;
+        font-size: 15px;
+        left: 0.5rem;
+    }
+    .userInput>input{
+        position: relative;
+        left: 2.5rem;
+        top: 0.5rem;
+        height: 3rem;
+        width: 12rem;
+        font-size: 10px;
+        padding-left: 1rem;
+    }
+    .buttonArea{
+        height: 80%;
+    }
+    .buttonArea>button{
+        padding: 0.5rem;
+        margin: 0.5rem;
+        margin-bottom: 0rem;
+        margin-top: 0rem;
+        font-size: 1rem;
+    }
+}
